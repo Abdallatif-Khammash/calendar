@@ -5,7 +5,6 @@
     <style>
       /* Set default styles for the calendar */
       .calendar {
-        width: 100%;
         max-width: 700px;
         margin: 0 auto;
         box-sizing: border-box;
@@ -68,12 +67,6 @@
         color: #888;
         margin-bottom: 20px;
       }
-      /* Set styles for smaller screens */
-      @media screen and (max-width: 800px) {
-        .calendar {
-          max-width: none;
-        }
-      }
     </style>
   </head>
   <body>
@@ -109,7 +102,7 @@
       const nextBtn = document.querySelector('#nextBtn');
       // Get the date for today and the picked date
       let today = new Date();
-       let pickedDate = null;
+      let pickedDate = null;
   // Set the minimum and maximum dates for the calendar
   const minDate = new Date(1970, 1, 1); // March 23, 2023
   const maxDate = new Date(2124, 2, 22); // March 22, 2024
