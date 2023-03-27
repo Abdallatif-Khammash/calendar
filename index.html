@@ -12,6 +12,9 @@
         font-family: Arial, sans-serif;
         text-align: center;
       }
+      .day.today {
+        background-color: yellow;
+      }
       .calendar h2 {
         font-size: 24px;
         font-weight: bold;
@@ -154,12 +157,14 @@
       daysEl.innerHTML += '<div class="day"></div>';
     }
     for (let i = 1; i <= lastDay.getDate(); i++) {
-      const day = new Date(year, date.getMonth(), i);
-      const dayOfWeek = day.getDay();
-      const isToday = day.toDateString() === today.toDateString();
-      const isActive = day.toDateString() === pickedDate?.toDateString();
-      daysEl.innerHTML += `<div class="day ${isActive ? 'active' : ''}" data-date="${day.toDateString()}">${i}</div>`;
-    }
+   const day = new Date(year, date.getMonth(), i);
+  const dayOfWeek = day.getDay();
+  const isToday = day.toDateString() === today.toDateString();
+  const isActive = day.toDateString() === pickedDate?.toDateString();
+  const cssClass = isToday ? 'today' : isActive ? 'active' : '';
+  daysEl.innerHTML += `<div class="day ${cssClass}" data-date="${day.toDateString()}">${i}</div>`;
+  }
+
     // Render the picked date and days counter
     pickedDateEl.textContent = pickedDate?.toLocaleDateString() || '-';
     daysCounter.textContent = daysSince;
